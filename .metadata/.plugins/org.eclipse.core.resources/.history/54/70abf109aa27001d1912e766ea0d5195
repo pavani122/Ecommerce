@@ -1,0 +1,12 @@
+package com.techouts.entities;
+
+import javax.persistence.Entity;
+
+@Entity
+public class Order {
+	
+	private int orderId;
+	private Product product;
+	private int quantity;
+
+}

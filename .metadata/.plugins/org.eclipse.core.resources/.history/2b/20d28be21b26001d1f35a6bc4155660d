@@ -1,0 +1,39 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
+<%@page isELIgnored="false" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<style>
+.menuhome{
+}
+</style>
+<body>
+<c:set var="ctg" scope="application" value="${categoryname }"></c:set>
+<div>
+<c:forEach items="${category }" var="cats">
+<c:set var="x" scope="page" value="${cats.categoryName}"></c:set>
+<c:if test="${!x.equals(ctg) }">
+<div class="menuhome"><a href="/Ecommerce/main"><button>Home</button></a></div>
+<%-- ------------------>>>>> x= ${x} <br/>
+------------------>>>>> ctg= ${ctg} <br/> --%>
+<a href="/Ecommerce/plp/${x}"><img alt="category" src="${cats.categoryImage }" style="width: 200px;
+height: auto;"></a>
+<c:out value="${x}"></c:out>
+</c:if>
+</c:forEach>
+</div>
+
+
+
+
+
+
+
+
+</body>
+</html>

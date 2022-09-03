@@ -1,0 +1,62 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@page isELIgnored="false" %>
+    
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<style>
+.plpmain{
+display: inline-flex;
+gap: 50px;
+}
+#img{ 
+border: 1px solid black;
+border-radius: 12px;
+text-align: center;
+padding: 20px;
+}
+#name{
+color:black;
+font-size: x-large;
+font-weight: bold;
+}
+#price{
+color:black;
+font-size: x-large;
+font-weight: normal;
+}
+.desc{
+font-weight: normal;
+}
+#ab{
+gap:30px;
+}
+button{
+padding: 10px;
+font-size: x-large;
+background-color: pink;
+}
+button:hover {
+  background-color: white;
+  color: black;
+  
+}
+</style>
+<body>
+<div class="plpmain">
+<div id="plpimg">
+<img alt="product" src="${productData.productImage }">
+</div>
+<div id="plpdetails">
+<div id="plpname">${productData.productName }</div><br>
+<div id="plpprice">Rs.${productData.productPrice }/-</div><br>
+<div id="plpab"><a href="/Ecommerce/cart/${productData.productId }"><button>AddtoCart</button></a>
+<a href="cart"><button>Buy</button></a></div></div></div>
+<br><br><br>
+<div id="plpdesc"><h3>${productData.productDesc }</h3></div><br>
+</body>
+</html>

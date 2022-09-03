@@ -1,0 +1,37 @@
+package com.techouts.dao;
+
+import java.util.List;
+
+import org.springframework.orm.hibernate5.HibernateTemplate;
+
+import com.techouts.entities.Order;
+import com.techouts.entities.Product;
+
+public class OrderDao {
+
+	private HibernateTemplate template;
+
+	public HibernateTemplate getTemplate() {
+		return template;
+	}
+
+	public void setTemplate(HibernateTemplate template) {
+		this.template = template;
+	}
+	
+	public void save(Order order)
+	{
+		this.template.save(order);
+	}
+
+	public void validate(List<Product> productList, int quantity) {
+
+		for(Product p:productList)
+		{
+			if(p.getProductImage()) {
+				
+			}
+		}
+	}
+	
+}

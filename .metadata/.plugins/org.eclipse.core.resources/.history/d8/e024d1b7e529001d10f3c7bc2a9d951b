@@ -1,0 +1,24 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@page isELIgnored="false" %>
+    
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>login</title>
+</head>
+<body>
+<h1>
+${error }<br><br>
+${message }<br><br>
+${cartMessage }<br><br>
+${LoginMessage }<br><br></h1>
+<form action="/Ecommerce/welcome" method="get">
+<label id="fields"><b>Username</b><input type="text" name="name"><br><br>
+<label id="fields"><b>Password</b><input type="password" name="password"><br><br>
+<input type="submit" value="login">
+</form>
+
+</body>
+</html>

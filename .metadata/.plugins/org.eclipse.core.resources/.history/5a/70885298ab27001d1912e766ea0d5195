@@ -1,0 +1,20 @@
+package com.techouts.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.techouts.dao.OrderDao;
+import com.techouts.entities.Order;
+
+
+public class OrderService {
+
+
+	private OrderDao orderDao;
+	
+	public void save(Order order)
+	{
+		orderDao.save(order);
+	}
+	
+}

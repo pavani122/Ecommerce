@@ -1,0 +1,134 @@
+package com.techouts.controllers;
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.techouts.entities.Cart;
+import com.techouts.entities.OrdersData;
+import com.techouts.entities.Product;
+import com.techouts.services.CartService;
+import com.techouts.services.OrderService;
+import com.techouts.services.ProductService;
+
+@Controller
+@Transactional
+public class OrderController {
+
+	@Autowired
+	ProductService productService;
+	@Autowired
+	CartService cartService;
+	@Autowired
+	OrderService orderService;
+	
+	@RequestMapping("/minus/{quantity}")
+	public ModelAndView quantityMinus(@PathVariable("quantity") int quantity,ModelAndView model
+			,HttpSession session)
+	{
+		quantity=quantity-1;
+		model.addObject("quantity", quantity);
+		Product productData=(Product)session.getAttribute("productData");
+		model.addObject("productData", productData);
+		model.setViewName("pdp");
+		return model;
+		
+	}
+	
+	@RequestMapping("/plus/{quantity}")
+	public ModelAndView quantityPlus(@PathVariable("quantity") int quantity,
+			ModelAndView model,HttpSession session)
+	{
+		quantity=quantity+1;
+		model.addObject("quantity", quantity);
+		Product productData=(Product)session.getAttribute("productData");
+		model.addObject("productData", productData);
+		model.setViewName("pdp");
+		return model;
+		
+	}
+	
+	@RequestMapping("/cartPlus/{cartId}/{price}/{quantity}")
+	public ModelAndView updateCartPlus(@PathVariable("cartId") int cartId,
+			@PathVariable("price") float price,
+			@PathVariable("quantity") int quantity,ModelAndView model,
+			HttpSession session)
+	{
+		quantity=quantity+1;
+		cartService.update(cartId,price,quantity);
+		String username=(String) session.getAttribute("name");
+		List<Cart> cartList=cartService.getCartByName(username);
+		float cartTotalAmount=cartService.getCartAmount(cartList);
+        model.addObject("cartTotalAmount",cartTotalAmount );
+		model.addObject("cartList", cartList);
+		model.setViewName("cart");
+		return model;
+		
+	}
+	
+	@RequestMapping("/cartMinus/{cartId}/{price}/{quantity}")
+	
+	public ModelAndView updateCartMinus(@PathVariable("cartId") int cartId,
+			@PathVariable("price") float price,
+			@PathVariable("quantity") int quantity,ModelAndView model,
+			HttpSession session)
+	{
+		quantity=quantity-1;
+		cartService.update(cartId,price,quantity);
+		String username=(String) session.getAttribute("name");
+		List<Cart> cartList=cartService.getCartByName(username);
+		float cartTotalAmount=cartService.getCartAmount(cartList);
+        model.addObject("cartTotalAmount",cartTotalAmount );
+		model.addObject("cartList", cartList);
+		model.setViewName("cart");
+		return model;
+		
+	}
+	
+	
+	
+	@RequestMapping("/cartBuy")
+	public ModelAndView buy(ModelAndView model,HttpSession session)
+	{
+		String paymentMessage="Your payment successfull";
+		model.addObject("paymentMessage", paymentMessage);
+		String username=(String) session.getAttribute("name");
+        List<Cart> cartList= cartService.getCartByName(username);
+        OrdersData order=cartService.getOrder(cartList);
+		orderService.save(order);
+		cartService.deleteAll(cartList);
+		model.setViewName("buy");
+		return model;	
+	}
+	
+	
+	
+	
+	@RequestMapping("/order")
+	public ModelAndView orders(ModelAndView model)
+	{
+		List<OrdersData> orderList=orderService.loadAll();
+		model.addObject("orderList", orderList);
+		model.setViewName("orders");
+		return model;	
+	}
+	
+	@RequestMapping("order/remove/{orderId}")
+	public ModelAndView remove(@PathVariable("orderId") int orderId,HttpSession session
+			,ModelAndView model)
+	{
+		OrdersData orderObj=orderService.getOrderById(orderId);
+		orderService.deleteOrderObj(orderObj);
+		List<OrdersData> orderList=orderService.loadAll();
+		model.addObject("orderList", orderList);
+		model.setViewName("orders");
+		return model;
+	}
+	
+	
+}

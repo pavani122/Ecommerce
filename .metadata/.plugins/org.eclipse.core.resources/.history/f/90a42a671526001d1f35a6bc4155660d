@@ -1,0 +1,22 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title></title>
+</head>
+<style>
+.slide{
+display:inline-flex;
+overflow-x: scroll;
+}
+</style>
+<body>
+<div class="slide"><marquee>
+<c:forEach items="${images }" var="i" >
+<img alt="${i }" src="${i.imageUrl }">
+</c:forEach>
+</marquee>
+</div>
+</html>

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC  
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"  
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">  
+       <tiles-definitions>
+       <definition name="layout" template="/WEB-INF/tiles/layout.jsp">
+       <put-attribute name="title" value=""></put-attribute>
+       <put-attribute name="header" value=""></put-attribute>
+       <put-attribute name="menu" value=""></put-attribute>
+       <put-attribute name="body" value=""></put-attribute>
+       <put-attribute name="footer" value=""></put-attribute> 
+       </definition>
+       
+   
+       
+       <definition name="manager" extends="layout">
+       <put-attribute name="title" value="manager"></put-attribute>
+       <put-attribute name="header" value=""></put-attribute>
+       <put-attribute name="menu" value=""></put-attribute>
+       <put-attribute name="body" value="/WEB-INF/view/manager.jsp"></put-attribute>
+       <put-attribute name="footer" value=""></put-attribute>
+       </definition>
+       
+       <definition name="slidingImage" extends="layout">
+       <put-attribute name="title" value="slidingImage"></put-attribute>
+       <put-attribute name="header" value=""></put-attribute>
+       <put-attribute name="menu" value=""></put-attribute>
+       <put-attribute name="body" value="/WEB-INF/images/slidingImage.jsp"></put-attribute>
+       <put-attribute name="footer" value=""></put-attribute>
+       </definition>
+       
+       <definition name="addCategory" extends="layout">
+       <put-attribute name="title" value="addCategory"></put-attribute>
+       <put-attribute name="header" value=""></put-attribute>
+       <put-attribute name="menu" value=""></put-attribute>
+       <put-attribute name="body" value="/WEB-INF/images/addCategory.jsp"></put-attribute>
+       <put-attribute name="footer" value=""></put-attribute>
+       </definition>
+       
+       <definition name="home" extends="layout">
+       <put-attribute name="title" value="home"></put-attribute>
+       <put-attribute name="header" value="/WEB-INF/tiles/header.jsp"></put-attribute>
+       <put-attribute name="menu" value="/WEB-INF/tiles/menu.jsp"></put-attribute>
+       <put-attribute name="body" value="/WEB-INF/view/home.jsp"></put-attribute>
+       <put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp"></put-attribute>
+       </definition>
+       
+       <definition name="register" extends="layout">
+       <put-attribute name="title" value="register"></put-attribute>
+       <put-attribute name="header" value="/WEB-INF/tiles/header.jsp"></put-attribute>
+       <put-attribute name="menu" value="/WEB-INF/tiles/menu.jsp"></put-attribute>
+       <put-attribute name="body" value="/WEB-INF/view/register.jsp"></put-attribute>
+       <put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp"></put-attribute>
+       </definition>
+       
+       <definition name="login" extends="layout">
+       <put-attribute name="title" value="login"></put-attribute>
+       <put-attribute name="header" value="/WEB-INF/tiles/header.jsp"></put-attribute>
+       <put-attribute name="menu" value=""></put-attribute>
+       <put-attribute name="body" value="/WEB-INF/view/login.jsp"></put-attribute>
+       <put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp"></put-attribute>
+       </definition>
+       
+       <definition name="registered" extends="layout">
+       <put-attribute name="title" value="registered"></put-attribute>
+       <put-attribute name="header" value="/WEB-INF/tiles/header.jsp"></put-attribute>
+       <put-attribute name="menu" value=""></put-attribute>
+       <put-attribute name="body" value="/WEB-INF/view/registered.jsp"></put-attribute>
+       <put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp"></put-attribute>
+       </definition>
+       
+       <definition name="main" extends="layout">
+       <put-attribute name="title" value="main"></put-attribute>
+       <put-attribute name="header" value="/WEB-INF/tiles/header2.jsp"></put-attribute>
+       <put-attribute name="menu" value="/WEB-INF/tiles/menu.jsp"></put-attribute>
+       <put-attribute name="body" value="/WEB-INF/view/main.jsp"></put-attribute>
+       <put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp"></put-attribute>
+       </definition>
+       
+       <definition name="logout" extends="layout">
+       <put-attribute name="title" value="logout"></put-attribute>
+       <put-attribute name="header" value="/WEB-INF/tiles/header.jsp"></put-attribute>
+       <put-attribute name="menu" value="/WEB-INF/tiles/menu.jsp"></put-attribute>
+       <put-attribute name="body" value="/WEB-INF/view/main.jsp"></put-attribute>
+       <put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp"></put-attribute>
+       </definition>
+       
+       <definition name="productData" extends="layout">
+       <put-attribute name="title" value="productData"></put-attribute>
+       <put-attribute name="header" value="/WEB-INF/tiles/header.jsp"></put-attribute>
+       <put-attribute name="menu" value="/WEB-INF/tiles/menu.jsp"></put-attribute>
+       <put-attribute name="body" value="/WEB-INF/product/productData.jsp"></put-attribute>
+       <put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp"></put-attribute>
+       </definition>
+       
+       <definition name="plp" extends="layout">
+       <put-attribute name="title" value="plp"></put-attribute>
+       <put-attribute name="header" value="/WEB-INF/tiles/header2.jsp"></put-attribute>
+       <put-attribute name="menu" value="/WEB-INF/tiles/menu2.jsp"></put-attribute>
+       <put-attribute name="body" value="/WEB-INF/product/plp.jsp"></put-attribute>
+       <put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp"></put-attribute>
+       </definition>
+       
+       <definition name="pdp" extends="layout">
+       <put-attribute name="title" value="pdp"></put-attribute>
+       <put-attribute name="header" value="/WEB-INF/tiles/header2.jsp"></put-attribute>
+       <put-attribute name="menu" value=""></put-attribute>
+       <put-attribute name="body" value="/WEB-INF/product/pdp.jsp"></put-attribute>
+       <put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp"></put-attribute>
+       </definition>
+       
+       <definition name="cart" extends="layout">
+       <put-attribute name="title" value="cart"></put-attribute>
+       <put-attribute name="header" value="/WEB-INF/tiles/header2.jsp"></put-attribute>
+       <put-attribute name="menu" value=""></put-attribute>
+       <put-attribute name="body" value="/WEB-INF/product/cart.jsp"></put-attribute>
+       <put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp"></put-attribute>
+       </definition>
+       
+       <definition name="buy" extends="layout">
+       <put-attribute name="title" value="buy"></put-attribute>
+       <put-attribute name="header" value="/WEB-INF/tiles/header2.jsp"></put-attribute>
+       <put-attribute name="menu" value=""></put-attribute>
+       <put-attribute name="body" value="/WEB-INF/product/buy.jsp"></put-attribute>
+       <put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp"></put-attribute>
+       </definition>
+       
+       <definition name="buy" extends="layout">
+       <put-attribute name="title" value="buy"></put-attribute>
+       <put-attribute name="header" value="/WEB-INF/tiles/header2.jsp"></put-attribute>
+       <put-attribute name="menu" value=""></put-attribute>
+       <put-attribute name="body" value="/WEB-INF/product/buy.jsp"></put-attribute>
+       <put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp"></put-attribute>
+       </definition>
+             
+       </tiles-definitions>

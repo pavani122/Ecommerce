@@ -1,0 +1,5 @@
+package com.techouts.entities;
+
+public class Order {
+
+}

@@ -1,0 +1,36 @@
+package com.techouts.services;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.techouts.dao.OrderDao;
+import com.techouts.entities.Order;
+import com.techouts.entities.Product;
+
+
+public class OrderService {
+
+   
+	@Autowired
+	private OrderDao orderDao;
+	
+	public OrderDao getOrderDao() {
+		return orderDao;
+	}
+
+	public void setOrderDao(OrderDao orderDao) {
+		this.orderDao = orderDao;
+	}
+
+	public void save(Order order)
+	{
+		orderDao.save(order);
+	}
+
+//	public void validate(Product product, int quantity) {
+//		orderDao.validate(product,quantity);
+//	}
+	
+}

@@ -1,0 +1,44 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>    
+    
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Layout</title>
+</head>
+<style>
+.main{
+margin: auto;
+max-width: 1400px;
+}
+.header{
+background-color: #c7cedb;
+  text-align: center;
+  padding: 20px;
+}
+.menu{
+text-align: center;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+}
+.body{
+}
+.footer{
+background-color: #c7cedb;
+text-align: center;
+padding: 10px;
+font-size: 16px;
+}
+</style>
+<body>
+<div class="main">
+<div class="header"><tiles:insertAttribute name="header"/></div>
+<div class="menu"><tiles:insertAttribute name="menu"/></div>
+<div class="body"><tiles:insertAttribute name="body"/></div>
+<div class="footer"><tiles:insertAttribute name="footer"/></div>
+</div>
+</body>
+</html>

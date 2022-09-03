@@ -1,0 +1,65 @@
+package com.techouts.services;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.techouts.dao.CartDao;
+import com.techouts.entities.Cart;
+import com.techouts.entities.Person;
+import com.techouts.entities.Product;
+@Service
+public class CartService {
+
+	@Autowired
+	private CartDao cartDao;
+	
+	public CartDao getCartDao() {
+		return cartDao;
+	}
+
+	public void setCartDao(CartDao cartDao) {
+		this.cartDao = cartDao;
+	}
+
+
+	public int save(Cart cart)
+	{
+	int i=cartDao.save(cart);
+	}
+
+
+	public List<Cart> getCartIdByName(String name) {
+		
+		List<Cart> cart=cartDao.getCartIdByName(name);
+		
+		return cart;
+	}
+	
+	public List<Cart> loadAll()
+	{
+		List<Cart> cartList=cartDao.loadAll();
+		return cartList;
+		
+	}
+
+	public List<Product> update(int cartId, Product product) {
+		List<Product> productList= cartDao.update(cartId,product);
+		 return productList;
+	}
+
+	
+
+	public Cart getCart(String username) {
+		Cart cart= cartDao.getCart(username);
+		return cart;
+	}
+
+	public List<Product> getProductsByCartId(int cartId) {
+		List<Product> productList=cartDao.getProductsByCartId(cartId);
+		
+		return productList;
+	}
+
+}

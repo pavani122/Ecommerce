@@ -1,0 +1,9 @@
+package com.techouts.dao;
+
+import org.springframework.orm.hibernate5.HibernateTemplate;
+
+public class OrderDao {
+
+	private HibernateTemplate template;
+	
+}

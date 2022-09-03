@@ -1,0 +1,21 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<div class="buymain">
+<div id="buyimg">
+<img alt="buyproduct" src="${productData.productImage }">
+</div>
+<div id="buydetails">
+<div id="buyname">${productData.productName }</div><br>
+<div id="buyprice">Rs.${productData.productPrice }/-</div><br>
+<div id="buyab"><a href="/Ecommerce/cart/${productData.productId }"><button>Cancel</button></a>
+<a href="/Ecommerce/cart/${productData.productId }"><button>Place an order</button></a></div></div></div>
+<br><br><br>
+</body>
+</html>

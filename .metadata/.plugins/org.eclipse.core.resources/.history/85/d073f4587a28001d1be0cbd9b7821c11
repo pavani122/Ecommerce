@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:context="http://www.springframework.org/schema/context"  
+    xmlns:mvc="http://www.springframework.org/schema/mvc"  
+    xsi:schemaLocation="  
+        http://www.springframework.org/schema/beans  
+        http://www.springframework.org/schema/beans/spring-beans.xsd  
+        http://www.springframework.org/schema/context  
+        http://www.springframework.org/schema/context/spring-context.xsd  
+        http://www.springframework.org/schema/mvc  
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/tx  
+        http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+        
+        <mvc:annotation-driven/>
+       <tx:annotation-driven/>
+       <context:component-scan base-package="com.techouts.*"/>
+        
+      <bean class="org.springframework.web.servlet.view.tiles3.TilesViewResolver" id="viewResolver"/>
+      <bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+   <property name="definitions">
+     <list>
+       <value>/WEB-INF/tiles.xml</value>
+     </list>
+   </property>
+ </bean>
+ 
+      <bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" id="dataSource">
+      <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></property>
+      <property name="url" value="jdbc:mysql://localhost:3306/ecommerce"></property>
+      <property name="username" value="root"></property>
+      <property name="password" value="techouts@123"></property>
+      
+      
+      </bean>
+      
+      <bean class="org.springframework.orm.hibernate5.LocalSessionFactoryBean" id="factory">
+      <property name="dataSource" ref="dataSource"></property>
+      <property name="hibernateProperties">
+      <props>
+      <prop key="hibernate.dialect">org.hibernate.dialect.MySQL57Dialect</prop>
+      <prop key="hibernate.show_sql">true</prop>
+      <prop key="hibernate.hbm2ddl.auto">update</prop>
+      </props>
+      </property>
+      <property name="annotatedClasses">
+      <list>
+      <value>com.techouts.entities.Person</value>
+      <value>com.techouts.entities.Product</value>
+      <value>com.techouts.entities.SlidingImage</value>
+      <value>com.techouts.entities.Category</value>
+      <value>com.techouts.entities.Cart</value>
+      </list>
+      </property>
+      </bean>
+      
+      <bean class="org.springframework.orm.hibernate5.HibernateTemplate" id="hibernateTemplate">
+      <property name="sessionFactory" ref="factory"></property>
+      </bean>
+      
+      <bean class="org.springframework.orm.hibernate5.HibernateTransactionManager" id="transactionManager">
+      <property name="sessionFactory" ref="factory"></property>
+      </bean>
+      
+      <bean class="com.techouts.dao.PersonDao" id="personDao">
+      <property name="template" ref="hibernateTemplate"></property>
+      </bean>
+      
+      <bean class="com.techouts.services.PersonService" id="service">
+      </bean>
+      
+      <bean class="com.techouts.dao.ProductDao" id="productDao">
+      <property name="template" ref="hibernateTemplate"></property>
+      </bean>
+      
+      <bean class="com.techouts.services.ProductService" id="productService">
+      </bean>
+      
+      <bean class="com.techouts.dao.ImageDao" id="imageDao">
+      <property name="template" ref="hibernateTemplate"></property>
+      </bean>
+      
+      <bean class="com.techouts.services.ImageService" id="imageService">
+      </bean>
+      
+      <bean class="com.techouts.dao.CategoryDao" id="categoryDao">
+      <property name="template" ref="hibernateTemplate"></property>
+      </bean>
+      
+      <bean class="com.techouts.services.CategoryService" id="categoryService">
+      </bean>
+      
+      <bean class="com.techouts.dao.CartDao" id="cartDao">
+      <property name="template" ref="hibernateTemplate"></property>
+      </bean>
+      
+      <bean class="com.techouts.services.CartService" id="cartService">
+      </bean>
+      
+      
+      
+</beans>
